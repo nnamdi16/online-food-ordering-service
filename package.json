@@ -1,0 +1,32 @@
+{
+  "name": "online-food-ordering-service",
+  "version": "1.0.0",
+  "description": "A web application used to manage the backend facilities of an online food service",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nnamdi16/online-food-ordering-service.git"
+  },
+  "keywords": [
+    "GET",
+    "PUT",
+    "DELETE",
+    "POST"
+  ],
+  "author": "Nwabuokei Nnamdi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nnamdi16/online-food-ordering-service/issues"
+  },
+  "homepage": "https://github.com/nnamdi16/online-food-ordering-service#readme",
+  "devDependencies": {
+    "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "joi": "^14.3.1",
+    "mongoose": "^5.4.22"
+  }
+}
