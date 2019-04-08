@@ -7,10 +7,12 @@ const express = require('express');
 // Creates endpoints for responding to client's request
 const router = express.Router();
 
+// const food = [];
+
 //GET method route for viewing all food categories
 router.get('/', async (req, res) => {
-  const categories = await Category.find().sort('name');
-  res.send(categories);
+  const category = await Category.find().sort('name');
+  res.send(category);
 });
 
 //Endpoint for creating new category
@@ -26,6 +28,8 @@ router.post('/', async (req, res) => {
     name: req.body.name
   });
   category = await category.save();
+  // await food.push(category);
+
   res.send(category);
 });
 
@@ -33,7 +37,7 @@ router.post('/', async (req, res) => {
 //Endpoint for updating a category
 
 //Endpoint for updating  category
-router.put(':/id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   //Catch errors and send the info to the client
   const {
     error
@@ -41,8 +45,8 @@ router.put(':/id', async (req, res) => {
   if (error) return res.status(400).send(error.details[0].message);
 
   //Search the database for a the food category id requested.
-  const category = await Category.findByIdAndUpdate(params.id, {
-    name: req.body
+  const category = await Category.findByIdAndUpdate(req.params.id, {
+    name: req.body.name
   }, {
     new: true
   });
