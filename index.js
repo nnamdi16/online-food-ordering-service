@@ -2,10 +2,14 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const category = require('./route/category');
+const food = require('./route/food');
+
+require('./startup/validation')();
 
 //Register middleware function
 app.use(express.json());
 app.use('/api/category',category);
+app.use('/api/food',food);
 
 //Connect to our mongodb database
 mongoose.connect('mongodb://localhost/online-food-services')
